@@ -1,0 +1,36 @@
+<div class=" login">
+    <!-- BEGIN LOGO -->
+    <div class="logo">
+
+    </div>
+    <!-- END LOGO -->
+    <!-- BEGIN LOGIN -->
+    <div class="content">
+        <!-- BEGIN LOGIN FORM -->
+
+        <form class="login-form" #form="ngForm" (submit)="login(form.value)">
+            <h3 class="form-title font-green">Sign In</h3>
+            <div class="alert alert-danger" *ngIf="loginAlert" role="alert">
+                Invaid Username and password
+              </div>
+            <div class="form-group">
+                <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+                <label class="control-label visible-ie8 visible-ie9">Username</label>
+                <input class="form-control form-control-solid placeholder-no-fix" type="text"  ngModel name="adminId" #username placeholder="Username" required/> </div>
+
+                <div class="form-group">
+                <label class="control-label visible-ie8 visible-ie9">Password</label>
+                <input class="form-control form-control-solid placeholder-no-fix" type="password" ngModel name="password" #password placeholder="Password" required/> </div>
+            <div class="form-actions">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button type="submit" class="btn green uppercase" [disabled]="form.invalid">Login</button>
+            </div>
+
+        </form>
+        <!-- END LOGIN FORM -->
+
+
+    </div>
+    <div class="copyright">  2018 &copy; Astute&nbsp;.&nbsp;Designed and Developed by <a href="http://www.ariantechsolutions.com/" target="_blank">Ariantech Solutions Pvt Ltd </a></div></div>

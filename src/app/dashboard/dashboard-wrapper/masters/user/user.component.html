@@ -1,0 +1,110 @@
+<!-- BEGIN CONTENT BODY -->
+<div class="page-content">
+  <!-- BEGIN PAGE HEADER-->
+
+  <!-- BEGIN PAGE BAR -->
+  <div class="page-bar">
+    <ul class="page-breadcrumb">
+      <li>
+        Home
+        <i class="fa fa-circle"></i>
+      </li>
+      <li>
+        <span>User</span>
+      </li>
+    </ul>
+
+  </div>
+  <!-- END PAGE BAR -->
+  
+  <!-- END PAGE HEADER-->
+  <div class="row">
+    <div class="col-md-12">
+      <div class="portlet box green">
+        <div class="portlet-title">
+          <div class="caption">
+            <i class="fa fa-gift"></i>City </div>
+
+        </div>
+        <div class="portlet-body form">
+          <!-- BEGIN FORM-->
+          <form class="form-horizontal" #form="ngForm" novalidate>
+
+            <BR/>
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label class="control-label col-md-2">City</label>
+                  <div class="col-md-9">
+                    <input type="text" style="display: none;" #id="ngModel" [(ngModel)]="idTxt" name="idTxt">
+                    <input type="text" class="form-control" #city="ngModel" [(ngModel)]="cityTxt" name="CityTxt" required>
+
+                    <span class="validation" *ngIf="city.touched && city.invalid"> Enter the city </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <div class="row">
+
+                <div class="col-md-6">
+                  <div class="row">
+                    <div class="col-md-offset-3 col-md-9">
+                      <button type="button" class="btn green" (click)="insertCity(); form.reset();" *ngIf="insertBtn" [disabled]="!form.valid">Submit</button>
+                      <button type="button" class="btn green" (click)="editCity(); form.reset();" *ngIf="updateBtn" [disabled]="!form.valid">Update</button>
+                      <button type="button" class="btn default" (click)="form.reset();">Cancel</button>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+
+          <!-- END FORM-->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+      <div class="col-md-12">
+          <!-- BEGIN SAMPLE TABLE PORTLET-->
+          <div class="portlet box blue">
+              <div class="portlet-title">
+                  <div class="caption">
+                      <i class="fa fa-comments"></i>All User data </div>
+                  
+              </div>
+              <div class="portlet-body">
+                  <div class="table-scrollable">
+                      <table class="table table-bordered table-hover">
+                          <thead>
+                              <tr>
+                                  
+                                  <th> Role </th>
+                                  
+
+                              </tr>
+                          </thead>
+                          <tbody>
+                              
+                            <tr class="active" *ngFor="let data of table">
+
+                                  <td> {{ data.city }} </td>
+                                  
+                                  <td> <button type="button" class="btn green" (click)="editCityClick(data._id);" >Edit</button> </td>
+                                  <td> <button type="button" class="btn red" (click)="deleteCity(data._id);" >Delete</button> </td>
+                                  
+                              </tr>
+                              
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+          </div>
+          <!-- END SAMPLE TABLE PORTLET-->
+      </div></div></div>
+  <!-- END CONTENT BODY -->
